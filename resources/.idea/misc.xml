@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_content_bottom.xml" value="0.133" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_icon.xml" value="0.133" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_image.xml" value="0.1405" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_input.xml" value="0.1405" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_main.xml" value="0.18885869565217392" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_sign_up.xml" value="0.22270742358078602" />
+        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_users.xml" value="0.21" />
+        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/item_container_user.xml" value="0.22" />
       </map>
     </option>
   </component>
