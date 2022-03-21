@@ -3,12 +3,14 @@ package com.example.chatapp.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.chatapp.R;
 import com.example.chatapp.adapters.UsersAdapter;
 import com.example.chatapp.databinding.ActivityUsersBinding;
+import com.example.chatapp.listeners.UserListener;
 import com.example.chatapp.models.User;
 import com.example.chatapp.utilities.Constants;
 import com.example.chatapp.utilities.PreferenceManager;
@@ -23,7 +25,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends AppCompatActivity
+    implements UserListener {
     private ActivityUsersBinding binding;
     private PreferenceManager preferenceManager;
     @Override
@@ -57,11 +60,12 @@ public class UsersActivity extends AppCompatActivity {
                                 user.setEmail(queryDocumentSnapshot.getString(Constants.KEY_EMAIL));
                                 user.setImage(queryDocumentSnapshot.getString(Constants.KEY_IMAGE));
                                 user.setToken(queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN));
+                                user.setId(queryDocumentSnapshot.getId());
                                 users.add(user);
                             }
                         }
                         if(users.size()>0) {
-                            UsersAdapter adapter = new UsersAdapter(users);
+                            UsersAdapter adapter = new UsersAdapter(users, UsersActivity.this);
                             binding.usersRecyclerView.setAdapter(adapter);
                             binding.usersRecyclerView.setVisibility(View.VISIBLE);
                         }
@@ -86,5 +90,13 @@ public class UsersActivity extends AppCompatActivity {
         }else {
             binding.progressBar.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onUserClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
+        finish();
     }
 }

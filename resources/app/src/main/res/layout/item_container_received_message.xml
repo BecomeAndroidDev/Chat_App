@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/_4sdp">
 
@@ -21,11 +22,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_received_message"
         android:layout_marginStart="@dimen/_4sdp"
-        android:padding="@dimen/_12sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_8sdp"
         android:textColor="@color/primary"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toEndOf="@id/image_profile"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="wrap"
         app:layout_constraintWidth_percent="0.75"/>
 
     <TextView
@@ -33,7 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/secondary_text"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:layout_marginTop="@dimen/_4sdp"
         app:layout_constraintStart_toStartOf="@id/text_message"
         app:layout_constraintTop_toBottomOf="@id/text_message"

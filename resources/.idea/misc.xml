@@ -11,12 +11,12 @@
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_input.xml" value="0.1405" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_received_message.xml" value="0.141" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/drawable/background_sent_message.xml" value="0.141" />
-        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_chat.xml" value="0.2" />
+        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_chat.xml" value="0.18" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_main.xml" value="0.18885869565217392" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_sign_up.xml" value="0.22270742358078602" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/activity_users.xml" value="0.21" />
-        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/item_container_received_message.xml" value="0.1675929884566054" />
+        <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/item_container_received_message.xml" value="0.25" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/item_container_sent_message.xml" value="0.21" />
         <entry key="..\:/Personality/Duc/Android/Projects/Chat_App/resources/app/src/main/res/layout/item_container_user.xml" value="0.22" />
       </map>
