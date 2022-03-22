@@ -9,10 +9,9 @@ public class ChatMessage implements Serializable {
     private String message;
     private String datetime;
     private Date dateObject;
-
-    public Date getDateObject() {
-        return dateObject;
-    }
+    private String conversationId;
+    private String conversationName;
+    private String conversationImage;
 
     public void setDateObject(Date dateObject) {
         this.dateObject = dateObject;
@@ -49,4 +48,32 @@ public class ChatMessage implements Serializable {
     public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
+    public String getConversationId() {
+        return conversationId;
+    }
+
+    public void setConversationId(String conversationId) {
+        this.conversationId = conversationId;
+    }
+
+    public String getConversationName() {
+        return conversationName;
+    }
+
+    public void setConversationName(String conversationName) {
+        this.conversationName = conversationName;
+    }
+
+    public String getConversationImage() {
+        return conversationImage;
+    }
+
+    public void setConversationImage(String conversationImage) {
+        this.conversationImage = conversationImage;
+    }
+
+    public Date getDateObject() {
+        return dateObject;
+    }
+
 }
