@@ -25,10 +25,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity
+public class UsersActivity extends BaseActivity
     implements UserListener {
     private ActivityUsersBinding binding;
     private PreferenceManager preferenceManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

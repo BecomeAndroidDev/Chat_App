@@ -1,6 +1,7 @@
 package com.example.chatapp.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,6 +27,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
@@ -35,8 +37,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
     private ActivityChatBinding binding;
     private User receiverUser;
     private List<ChatMessage> chatMessages;
@@ -44,6 +47,7 @@ public class ChatActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private FirebaseFirestore database;
     private String conversationId = null;
+    private boolean isReceiverAvailability = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,12 @@ public class ChatActivity extends AppCompatActivity {
         loadReceiverDetails();
         init();
         listenMessages();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listenAvailabilityOfReceiver();
     }
 
     private void init() {
@@ -89,6 +99,32 @@ public class ChatActivity extends AppCompatActivity {
             addConversation(conversation);
         }
         binding.inputMessage.setText(null);
+    }
+
+    private void listenAvailabilityOfReceiver() {
+        database.collection(Constants.KEY_COLLECTION_USERS)
+                .document(receiverUser.getId())
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if(error != null) {
+                            return;
+                        }
+                        else if (value != null) {
+                            if(value.getLong(Constants.KEY_AVAILABILITY) != null) {
+                               int availability = Objects.requireNonNull(value.getLong(Constants.KEY_AVAILABILITY))
+                                       .intValue();
+                               isReceiverAvailability = availability == 1;
+                            }
+                        }
+                        if(isReceiverAvailability) {
+                            binding.textAvailability.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            binding.textAvailability.setVisibility(View.GONE);
+                        }
+                    }
+                });
     }
 
     private void listenMessages() {
@@ -202,4 +238,6 @@ public class ChatActivity extends AppCompatActivity {
             conversationId = documentSnapshot.getId();
         }
     };
+
+
 }
